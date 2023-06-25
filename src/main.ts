@@ -2,6 +2,7 @@ import './style.css'
 import './normalize.css'
 
 import { createApp } from 'vue'
+import store from '@/store/store';
 import App from './App.vue'
 import router from './router'
 import MyModal from '@/components/UI/MyModal.vue'
@@ -15,6 +16,8 @@ app.component('my-modal', MyModal)
 app.component('my-button', MyButton) 
 app.component('my-input', MyInput) 
 app.component('my-link', MyLink) 
+
+app.use(store)
 
 app.use(router)
 

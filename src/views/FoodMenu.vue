@@ -59,7 +59,7 @@ export default defineComponent({
     sortMenu() {
       // Trigger the computed property to recompute the sorted menu
       this.sortedMenu;
-    }
+    },
   },
 
   beforeMount() {
@@ -101,7 +101,7 @@ export default defineComponent({
     </div>
     <div class="cards">
       <div class="card" v-for="food in sortedMenu" :key="food.id">
-        <MenuCard :card="food" />
+        <MenuCard :card="food"/>
       </div>
     </div>
   </section>

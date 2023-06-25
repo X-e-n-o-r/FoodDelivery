@@ -1,22 +1,28 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import ShoppingCartVue from './ShoppingCart.vue';
 export default defineComponent({
-  data() {
-    return {
-      dialogVisible: false,
-      dialogVisible2: false,
-      dialogVisible3: false
-    };
-  },
-  methods: {
-    showDialog(dialogName: string) {
-      (this as unknown as { [key: string]: boolean })[dialogName] = true;
+    data() {
+        return {
+            dialogVisible: false,
+            dialogVisible2: false,
+            dialogVisible3: false
+        };
     },
-    removeDialog(dialogName: string) {
-      (this as unknown as { [key: string]: boolean })[dialogName] = false;
-    }
-  }
+    methods: {
+        showDialog(dialogName: string) {
+            (this as unknown as {
+                [key: string]: boolean;
+            })[dialogName] = true;
+        },
+        removeDialog(dialogName: string) {
+            (this as unknown as {
+                [key: string]: boolean;
+            })[dialogName] = false;
+        }
+    },
+    components: { ShoppingCartVue }
 });
 </script>
 
@@ -45,7 +51,7 @@ export default defineComponent({
           <span class="button-text">Корзина</span>
         </my-button>
         <my-modal v-model:show="dialogVisible3">
-          <my-button>Оформить заказ</my-button>
+          <ShoppingCartVue />
         </my-modal>
         <my-button class="button-primary button-out" @click="showDialog('dialogVisible2')">
           <span class="button-text">Выйти</span>

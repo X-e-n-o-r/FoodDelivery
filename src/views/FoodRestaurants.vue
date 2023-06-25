@@ -29,7 +29,7 @@ export default defineComponent({
   },
   methods: {
     fetchData() {
-      axios.get('../src/components/db/db.json')
+      axios.get('./src/components/db/db.json')
         .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
           this.restaurants = response.data;
         })

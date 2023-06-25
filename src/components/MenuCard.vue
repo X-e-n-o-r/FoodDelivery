@@ -1,14 +1,21 @@
 <script lang="ts">
+import { mapActions } from 'vuex';
+
 export default {
   props: {
     card: {
-        type: Object,
-        required: true
-    }
-  }
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    ...mapActions(['addToCart']),
+    addToCartClicked() {
+      this.addToCart(this.card);
+    },
+  },
 };
 </script>
-
 <template>
 	<div>
 		<img :src="`../src/components/${card.image}`" alt="image" class="card-image" />
@@ -22,7 +29,7 @@ export default {
 			</div>
 			<!-- /.card-info -->
 			<div class="card-buttons">
-				<my-button class="button-cart" id="cart-button">
+				<my-button class="button-cart" id="cart-button" @click="addToCartClicked">
 					<span class="button-text">В корзину</span>
           			<span class="button-cart-svg"></span>
         		</my-button>
