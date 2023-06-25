@@ -20,11 +20,11 @@ interface RestaurantData {
 export default defineComponent({
   data() {
     return {
-      reference: this.$route.params.id,
+      reference: this.$route.params.id.toString(),
       menu: [] as MenuItem[],
       jsonData: null as unknown as RestaurantData,
       index: 0,
-      sortOption: 'default'
+      sortOption: 'default',
     };
   },
 
@@ -88,6 +88,32 @@ export default defineComponent({
   }
 });
 </script>
+
+<template>
+  <section class="menu">
+    <div class="section-heading">
+      <h2 class="section-title restaurant-title">{{ jsonData?.name }}</h2>
+      <div class="card-info">
+        <div class="rating">{{ jsonData?.stars }}</div>
+        <div class="price">От {{ jsonData?.price }} ₽</div>
+        <div class="category">{{ jsonData?.kitchen }}</div>
+      </div>
+      <div class="select">
+        <select id="sort" v-model="sortOption" @change="sortMenu">
+          <option value="default">Стандартно</option>
+          <option value="lowToHigh">Сначала дешевые</option>
+          <option value="highToLow">Сначала дорогие</option>
+        </select>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card" v-for="food in sortedMenu" :key="food.id">
+        <MenuCard :card="food" />
+      </div>
+    </div>
+  </section>
+</template>
+
 
 <template>
       <section class="menu">

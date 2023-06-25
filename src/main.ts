@@ -4,10 +4,10 @@ import './normalize.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import MyModal from './components/UI/MyModal.vue'
-import MyButton from './components/UI/MyButton.vue'
-import MyInput from './components/UI/MyInput.vue'
-import MyLink from './components/UI/MyLink.vue'
+import MyModal from '@/components/UI/MyModal.vue'
+import MyButton from '@/components/UI/MyButton.vue'
+import MyInput from '@/components/UI/MyInput.vue'
+import MyLink from '@/components/UI/MyLink.vue'
 
 const app = createApp(App)
 

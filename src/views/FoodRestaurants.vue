@@ -5,7 +5,13 @@ import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios, { type AxiosResponse } from 'axios';
 
 interface RestaurantData {
-  products: string[] | any[];
+  image: string;
+  name: string;
+  time_of_delivery: number;
+  stars: number;
+  products: string;
+  price: number;
+  kitchen: string;
 }
 
 export default defineComponent({
@@ -41,32 +47,34 @@ export default defineComponent({
 </script>
 
 <template>
-      <section class="menu">
-        <section class="container-promo">
-          <section class="promo pizza">
-            <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
-            <p class="promo-text">
-              Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
-            </p>
-          </section>
-        </section>
-        <div class="cards cards-menu">
-          <div class="restaurants">
-            <div class="section-heading">
-              <h2 class="section-title">Рестораны</h2>
-              <label class="search">
-                <my-input type="text" class="input input-search" placeholder="Поиск блюд и ресторанов" />
-              </label>
-            </div>
-            <div class="cards cards-restaurants">
-              <div class="card" v-for="(card, index) in restaurants?.db.partners" :key="index" @click="navigateToMenu(card.products, index)">
-                <RestaurantCard :card="card" />
-              </div>
-            </div>
+  <section class="menu">
+    <section class="container-promo">
+      <section class="promo pizza">
+        <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
+        <p class="promo-text">
+          Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+        </p>
+      </section>
+    </section>
+    <div class="cards cards-menu">
+      <div class="restaurants">
+        <div class="section-heading">
+          <h2 class="section-title">Рестораны</h2>
+          <label class="search">
+            <my-input type="text" class="input input-search" placeholder="Поиск блюд и ресторанов" />
+          </label>
+        </div>
+        <div class="cards cards-restaurants">
+          <div class="card" v-for="(card, index) in restaurants?.db.partners" :key="index" @click="navigateToMenu(card.products, index)">
+            <RestaurantCard :card="card" />
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 </template>
+
+
 
 <style scoped>
 .promo {
