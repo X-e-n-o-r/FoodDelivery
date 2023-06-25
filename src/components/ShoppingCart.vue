@@ -8,7 +8,7 @@
         <my-button @click="removeFromCart(item.id)" class="cart-item-remove">Убрать</my-button>
       </li>
     </ul>
-    <p class="cart-total">Total: {{ cartTotalPrice }} ₽</p>
+    <p class="cart-total">Всего: {{ cartTotalPrice }} ₽</p>
     <my-button @click="clearCart" class="cart-clear">Очистить корзину</my-button>
     <my-button>Оформить заказ</my-button>
   </div>
