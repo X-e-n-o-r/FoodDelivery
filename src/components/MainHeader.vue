@@ -1,3 +1,25 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      dialogVisible: false,
+      dialogVisible2: false,
+      dialogVisible3: false
+    };
+  },
+  methods: {
+    showDialog(dialogName: string) {
+      (this as unknown as { [key: string]: boolean })[dialogName] = true;
+    },
+    removeDialog(dialogName: string) {
+      (this as unknown as { [key: string]: boolean })[dialogName] = false;
+    }
+  }
+});
+</script>
+
 <template>
   <div class="container">
     <header class="header">
@@ -37,28 +59,6 @@
     </header>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  data() {
-    return {
-      dialogVisible: false,
-      dialogVisible2: false,
-      dialogVisible3: false
-    };
-  },
-  methods: {
-    showDialog(dialogName: string) {
-      this[dialogName] = true;
-    },
-    removeDialog(dialogName: string) {
-      this[dialogName] = false;
-    }
-  }
-});
-</script>
 
 
 <style scoped>

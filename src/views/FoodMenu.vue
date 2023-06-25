@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type ComponentPublicInstance } from 'vue';
 import MenuCard from '@/components/MenuCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios, { type AxiosResponse } from 'axios';
@@ -63,7 +63,7 @@ export default defineComponent({
   },
 
   beforeRouteEnter(to, from, next) {
-    next(vm => {
+    next((vm: ComponentPublicInstance<{ fetchData(): void }>) => {
       vm.fetchData(); // Activate fetchData during rendering
     });
   },
