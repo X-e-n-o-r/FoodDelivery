@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style scoped>
+my-button {
+  margin-left: auto;
+}
 .cart {
   padding: 20px;
   border: 1px solid #ccc;

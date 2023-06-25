@@ -22,7 +22,7 @@ const store = createStore({
     removeFromCart({ commit }: any, itemId: any) {
       commit('removeFromCart', itemId);
     },
-    clearCart({ commit }) {
+    clearCart({ commit }: any) {
       commit('clearCart');
     },
   },
