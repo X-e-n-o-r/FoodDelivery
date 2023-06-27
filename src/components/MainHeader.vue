@@ -30,7 +30,7 @@ export default defineComponent({
   <div class="container">
     <header class="header">
       <a class="logo">
-        <img src="./img/icon/logo.svg" alt="Logo" />
+        <img src="../img/icon/logo.svg" alt="Logo" />
       </a>
       <label class="address">
         <my-input type="text" class="input-address" placeholder="Адрес доставки" />
@@ -90,15 +90,15 @@ export default defineComponent({
 
 .input-address {
   width: 100%;
-  background-image: url(../components/img/icon/home.svg);
+  background-image: url(../img/icon/home.svg);
 }
 
 .button-primary .button-auth-svg {
   width: 24px;
   height: 24px;
   background-color: #595959;
-  -webkit-mask: url("../src/components/img/icon/user.svg") no-repeat 50% 50%;
-  mask: url("../src/components/img/icon/user.svg") no-repeat 50% 50%;
+  -webkit-mask: url("../src/img/icon/user.svg") no-repeat 50% 50%;
+  mask: url("../src/img/icon/user.svg") no-repeat 50% 50%;
   background-repeat: no-repeat;
 }
 

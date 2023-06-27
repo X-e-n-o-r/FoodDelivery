@@ -39,7 +39,7 @@ export default defineComponent({
       this.index = parseInt(lastLetter);
       const sliced = this.reference.slice(0, -1);
       // Fetch menu data
-      const url = `../src/components/db/${sliced}.json`;
+      const url = `../src/db/${sliced}.json`;
       axios.get(url)
         .then((response: AxiosResponse<MenuItem[]>) => {
           this.menu = response.data;
@@ -48,7 +48,7 @@ export default defineComponent({
           console.error('Error fetching menu data:', error);
         });
       // Fetch restaurant data
-      axios.get('../src/components/db/db.json')
+      axios.get('../src/db/db.json')
         .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
           this.jsonData = response.data.db.partners[this.index];
         })

@@ -19,7 +19,7 @@ export default defineComponent({
   },
   methods: {
     getImageSrc(): string {
-      return (`./src/components/${this.card.image}`);
+      return (`./src/${this.card.image}`);
     }
   }
 });
@@ -103,7 +103,7 @@ export default defineComponent({
     flex-wrap: wrap;
 }
 .rating {
-    background-image: url("./img/icon/rating.svg");
+    background-image: url("../img/icon/rating.svg");
     background-repeat: no-repeat;
     background-position: 0 7px;
     padding-left: 20px;

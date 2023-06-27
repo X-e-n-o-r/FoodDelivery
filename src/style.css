@@ -105,8 +105,8 @@ button {
   width: 24px;
   height: 24px;
   background-color: #595959;
-  -webkit-mask: url("./components/img/icon/shopping-cart.svg") no-repeat 50% 50%;
-  mask: url("./components/img/icon/shopping-cart.svg") no-repeat 50% 50%;
+  -webkit-mask: url("./img/icon/shopping-cart.svg") no-repeat 50% 50%;
+  mask: url("./img/icon/shopping-cart.svg") no-repeat 50% 50%;
   background-repeat: no-repeat;
 }
 
@@ -154,7 +154,7 @@ button {
 }
 
 .pizza {
-  background: #fff1b8 url(./components/img/promo/pizza.png) no-repeat top -100px right -250px / 830px
+  background: #fff1b8 url(./img/promo/pizza.png) no-repeat top -100px right -250px / 830px
 }
 
 .kebab {
@@ -295,7 +295,7 @@ button {
 }
 
 .rating {
-  background-image: url("components/img/icon/rating.svg");
+  background-image: url("img/icon/rating.svg");
   background-repeat: no-repeat;
   background-position: 0 7px;
   padding-left: 20px;

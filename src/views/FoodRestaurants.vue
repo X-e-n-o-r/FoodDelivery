@@ -29,7 +29,7 @@ export default defineComponent({
   },
   methods: {
     fetchData() {
-      axios.get('./src/components/db/db.json')
+      axios.get('./src/db/db.json')
         .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
           this.restaurants = response.data;
         })
@@ -117,7 +117,7 @@ export default defineComponent({
 }
 .input-search {
   width: 300px;
-  background-image: url(../components/img/icon/search.svg);
+  background-image: url(../img/icon/search.svg);
 }
 @media (max-width: 578px){
 .section-title {

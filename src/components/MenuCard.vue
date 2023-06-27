@@ -18,7 +18,7 @@ export default {
 </script>
 <template>
 	<div>
-		<img :src="`../src/components/${card.image}`" alt="image" class="card-image" />
+		<img :src="`../src/${card.image}`" alt="image" class="card-image" />
 		<div class="card-text">
 			<div class="card-heading">
 				<h3 class="card-title card-title-reg">{{ card.name }}</h3>
