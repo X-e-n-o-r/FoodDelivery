@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import MenuCard from '@/components/MenuCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
-import axios, { type AxiosResponse } from 'axios';
+import axios from 'axios';
 
 interface MenuItem {
   id: number;
@@ -22,7 +22,7 @@ export default defineComponent({
     return {
       reference: this.$route.params.id.toString(),
       menu: [] as MenuItem[],
-      jsonData: null as unknown as RestaurantData,
+      restaurantData: null as null | RestaurantData,
       index: 0,
       sortOption: 'default',
     };
@@ -38,21 +38,12 @@ export default defineComponent({
       const lastLetter = this.reference.slice(-1);
       this.index = parseInt(lastLetter);
       const sliced = this.reference.slice(0, -1);
-      // Fetch menu data
-      const url = `../src/db/${sliced}.json`;
-      axios.get(url)
-        .then((response: AxiosResponse<MenuItem[]>) => {
-          this.menu = response.data;
-        })
-        .catch((error: any) => {
-          console.error('Error fetching menu data:', error);
-        });
-      // Fetch restaurant data
       axios.get('../src/db/db.json')
-        .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
-          this.jsonData = response.data.db.partners[this.index];
+        .then(response => {
+          this.restaurantData = response.data.db.partners[this.index];
+          this.menu = response.data.db[sliced];
         })
-        .catch((error: any) => {
+        .catch(error => {
           console.error('Error fetching restaurant data:', error);
         });
     },
@@ -67,7 +58,7 @@ export default defineComponent({
   },
   
   computed: {
-    sortedMenu() {
+    sortedMenu(): MenuItem[] {
       const sortedItems: MenuItem[] = [...this.menu]; // Create a copy of the menu array
 
       if (this.sortOption === 'lowToHigh') {
@@ -85,11 +76,11 @@ export default defineComponent({
 <template>
   <section class="menu">
     <div class="section-heading">
-      <h2 class="section-title restaurant-title">{{ jsonData?.name }}</h2>
+      <h2 class="section-title restaurant-title">{{ restaurantData?.name }}</h2>
       <div class="card-info">
-        <div class="rating">{{ jsonData?.stars }}</div>
-        <div class="price">От {{ jsonData?.price }} ₽</div>
-        <div class="category">{{ jsonData?.kitchen }}</div>
+        <div class="rating">{{ restaurantData?.stars }}</div>
+        <div class="price">От {{ restaurantData?.price }} ₽</div>
+        <div class="category">{{ restaurantData?.kitchen }}</div>
       </div>
       <div class="select">
         <select id="sort" v-model="sortOption" @change="sortMenu">
