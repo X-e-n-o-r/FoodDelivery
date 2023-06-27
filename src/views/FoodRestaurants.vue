@@ -38,9 +38,9 @@ export default defineComponent({
         });
     },
     navigateToMenu(reference: string | any[], number: number) {
-      let sliced = reference.slice(0, -5);
-      sliced += number.toString();
-      this.$router.push({ name: 'menu', params: { id: sliced } });
+      let restaurantTitle = reference.slice(0, -5);
+      restaurantTitle += number.toString();
+      this.$router.push({ name: 'menu', params: { id: restaurantTitle } });
     }
   }
 });
