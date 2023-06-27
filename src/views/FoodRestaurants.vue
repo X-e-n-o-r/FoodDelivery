@@ -65,7 +65,7 @@ export default defineComponent({
           </label>
         </div>
         <div class="cards cards-restaurants">
-          <div class="card" v-for="(card, index) in restaurants?.db.partners" :key="index" @click="navigateToMenu(card.products, index)">
+          <div class="card" v-for="(card, index) in restaurants?.db.partners" :key="card.name" @click="navigateToMenu(card.products, index)">
             <RestaurantCard :card="card" />
           </div>
         </div>
