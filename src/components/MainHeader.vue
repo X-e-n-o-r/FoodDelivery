@@ -37,6 +37,7 @@ export default defineComponent({
       </label>
       <div class="buttons">
         <span class="user-name"></span>
+        
         <my-button class="button-primary button-auth" @click="showDialog('dialogVisible')">
           <span class="button-auth-svg"></span>
           <span class="button-text">Войти</span>
@@ -46,6 +47,7 @@ export default defineComponent({
           <my-input placeholder="Пароль" class="btn password" />
           <my-button @click="removeDialog('dialogVisible')">Войти</my-button>
         </my-modal>
+
         <my-button class="button-cart" id="cart-button" @click="showDialog('dialogVisible3')">
           <span class="button-cart-svg"></span>
           <span class="button-text">Корзина</span>
@@ -53,6 +55,7 @@ export default defineComponent({
         <my-modal v-model:show="dialogVisible3">
           <ShoppingCartVue />
         </my-modal>
+
         <my-button class="button-primary button-out" @click="showDialog('dialogVisible2')">
           <span class="button-text">Выйти</span>
           <span class="button-out-svg"></span>
