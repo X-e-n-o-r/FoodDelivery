@@ -37,11 +37,11 @@ export default defineComponent({
     fetchData() {
       const lastLetter = this.reference.slice(-1);
       this.index = parseInt(lastLetter);
-      const sliced = this.reference.slice(0, -1);
+      const restaurantName = this.reference.slice(0, -1);
       axios.get('../src/db/db.json')
         .then(response => {
           this.restaurantData = response.data.db.partners[this.index];
-          this.menu = response.data.db[sliced];
+          this.menu = response.data.db[restaurantName];
         })
         .catch(error => {
           console.error('Error fetching restaurant data:', error);

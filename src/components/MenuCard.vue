@@ -16,6 +16,7 @@ export default {
   },
 };
 </script>
+
 <template>
 	<div>
 		<img :src="`../src/${card.image}`" alt="image" class="card-image" />
