@@ -9,9 +9,9 @@ export interface RestaurantData {
 }
 
 export interface DishData {
-    id: string,
-    name: string,
-    description: string,
-    price: number,
-    image: string
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
 }
