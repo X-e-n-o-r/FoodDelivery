@@ -22,7 +22,6 @@ export default defineComponent({
   },
 
   methods: {
-    
     fetchData() {
       axios.get('./src/db/db.json')
         .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
@@ -33,7 +32,7 @@ export default defineComponent({
         });
     },
 
-    navigateToMenu(reference: string | any[], number: number) {
+    navigateToMenu(reference: string, number: number) {
       let restaurantTitle = reference.slice(0, -5);
       restaurantTitle += number.toString();
       this.$router.push({ name: 'menu', params: { id: restaurantTitle } });

@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import DishCard from '@/components/DishCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
-import axios from 'axios';
+import axios, { type AxiosResponse } from 'axios';
 import { type RestaurantData, type DishData } from '@/types/types'
 
 export default defineComponent({
@@ -27,7 +27,7 @@ export default defineComponent({
       this.index = parseInt(lastLetter);
       const restaurantName = this.reference.slice(0, -1);
       axios.get('../src/db/db.json')
-        .then(response => {
+        .then((response: AxiosResponse<{ db: any}>) => {
           this.restaurantData = response.data.db.partners[this.index];
           this.menu = response.data.db[restaurantName];
         })
