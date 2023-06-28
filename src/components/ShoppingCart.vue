@@ -1,3 +1,17 @@
+<script lang="ts">
+import { mapState, mapActions, mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapState(['cartItems']),
+    ...mapGetters(['cartTotalPrice']),
+  },
+  methods: {
+    ...mapActions(['removeFromCart', 'clearCart']),
+  },
+};
+</script>
+
 <template>
   <div class="cart">
     <h2 class="cart-title">Ваша корзина</h2>
@@ -13,20 +27,6 @@
     <my-button>Оформить заказ</my-button>
   </div>
 </template>
-
-<script lang="ts">
-import { mapState, mapActions, mapGetters } from 'vuex';
-
-export default {
-  computed: {
-    ...mapState(['cartItems']),
-    ...mapGetters(['cartTotalPrice']),
-  },
-  methods: {
-    ...mapActions(['removeFromCart', 'clearCart']),
-  },
-};
-</script>
 
 <style scoped>
 my-button {

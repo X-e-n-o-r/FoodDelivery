@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import MenuCard from '@/components/MenuCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios from 'axios';
-import { type RestaurantData, type DishData } from '../types/types'
+import { type RestaurantData, type DishData } from '@/types/types'
 
 export default defineComponent({
   data() {

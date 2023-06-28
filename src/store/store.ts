@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import { createStore, Commit } from 'vuex';
 import { type DishData } from '@/types/types';
 
 const store = createStore({
@@ -6,35 +6,32 @@ const store = createStore({
     cartItems: [],
   },
   mutations: {
-    addToCart(state: { cartItems: DishData[]; }, item: DishData) {
+    addToCart(state: { cartItems: DishData[] }, item: DishData) {
       state.cartItems.push(item);
     },
-    removeFromCart(state: { cartItems: DishData[]; }, itemId: DishData) {
-      state.cartItems = state.cartItems.filter((item: { id: any; }) => item.id !== itemId);
+    removeFromCart(state: { cartItems: DishData[] }, itemId: string) {
+      state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
     },
-    clearCart(state: { cartItems: never[]; }) {
+    clearCart(state: { cartItems: never[] }) {
       state.cartItems = [];
     },
   },
   actions: {
-    addToCart({ commit }: any, item: DishData) {
+    addToCart({ commit }: { commit: Commit }, item: DishData) {
       commit('addToCart', item);
     },
-    removeFromCart({ commit }: any, itemId: any) {
+    removeFromCart({ commit }: { commit: Commit }, itemId: string) {
       commit('removeFromCart', itemId);
     },
-    clearCart({ commit }: any) {
+    clearCart({ commit }: { commit: Commit }) {
       commit('clearCart');
     },
   },
   getters: {
-    cartItemCount(state: { cartItems: string | DishData[]; }) {
-      return state.cartItems.length;
-    },
-    cartTotalPrice(state: { cartItems: DishData[]; }) {
-      return state.cartItems.reduce((total: any, item: { price: number; }) => total + item.price, 0);
+    cartTotalPrice(state: { cartItems: DishData[] }) {
+      return state.cartItems.reduce((total: number, item) => total + item.price, 0);
     },
   },
 });
 
-export default store;
+export default store
