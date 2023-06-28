@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import MenuCard from '@/components/MenuCard.vue';
+import DishCard from '@/components/DishCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios, { type AxiosResponse } from 'axios';
 import { type RestaurantData } from '@/types/types'
@@ -17,7 +17,7 @@ export default defineComponent({
   },
 
   components: {
-    MenuCard,
+    DishCard,
     RestaurantCard
   },
 
