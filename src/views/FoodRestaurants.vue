@@ -3,16 +3,7 @@ import { defineComponent } from 'vue';
 import MenuCard from '@/components/MenuCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios, { type AxiosResponse } from 'axios';
-
-interface RestaurantData {
-  image: string;
-  name: string;
-  time_of_delivery: number;
-  stars: number;
-  products: string;
-  price: number;
-  kitchen: string;
-}
+import { type RestaurantData } from '../types/types'
 
 export default defineComponent({
   data() {
@@ -20,14 +11,18 @@ export default defineComponent({
       restaurants: null as null | { db: { partners: RestaurantData[] } }
     };
   },
+
   mounted() {
     this.fetchData();
   },
+
   components: {
     MenuCard,
     RestaurantCard
   },
+
   methods: {
+    
     fetchData() {
       axios.get('./src/db/db.json')
         .then((response: AxiosResponse<{ db: { partners: RestaurantData[] } }>) => {
@@ -37,6 +32,7 @@ export default defineComponent({
           console.error('Error fetching data:', error);
         });
     },
+
     navigateToMenu(reference: string | any[], number: number) {
       let restaurantTitle = reference.slice(0, -5);
       restaurantTitle += number.toString();

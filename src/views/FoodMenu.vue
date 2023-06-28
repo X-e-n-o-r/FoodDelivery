@@ -3,25 +3,13 @@ import { defineComponent } from 'vue';
 import MenuCard from '@/components/MenuCard.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import axios from 'axios';
-
-interface MenuItem {
-  id: number;
-  name: string;
-  price: number;
-}
-
-interface RestaurantData {
-  name: string;
-  stars: number;
-  price: number;
-  kitchen: string;
-}
+import { type RestaurantData, type DishData } from '../types/types'
 
 export default defineComponent({
   data() {
     return {
       reference: this.$route.params.id.toString(),
-      menu: [] as MenuItem[],
+      menu: [] as DishData[],
       restaurantData: null as null | RestaurantData,
       index: 0,
       sortOption: 'default',
@@ -58,8 +46,8 @@ export default defineComponent({
   },
   
   computed: {
-    sortedMenu(): MenuItem[] {
-      const sortedItems: MenuItem[] = [...this.menu]; // Create a copy of the menu array
+    sortedMenu(): DishData[] {
+      const sortedItems: DishData[] = [...this.menu]; // Create a copy of the menu array
 
       if (this.sortOption === 'lowToHigh') {
         sortedItems.sort((a, b) => a.price - b.price);
