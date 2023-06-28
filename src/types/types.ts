@@ -6,7 +6,7 @@ export interface RestaurantData {
     products: string;
     price: number;
     kitchen: string;
-},
+}
 
 export interface DishData {
     id: string,
